@@ -1,0 +1,87 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    dl { width: 320px; margin: 12px auto; }
+    dt { 
+      font-size: 28pt; color: #444; background-color:#7AFEC6;
+      margin: 6pt 0; padding: 6pt 12pt;text-align: center;
+    }
+    dd {
+      text-align: center; padding-right: 6pt;
+    }
+	ds { 
+      font-size: 28pt; color: #272727; background-color:#EA0000;
+      margin: 6pt 0; padding: 6pt 12pt;text-align: center;
+    }
+    .time { font-size: 16pt; color: seagreen; }
+    .num { font-size: 36pt; color: dodgerblue; }
+  </style>
+<script>
+function current_time(){
+　NowDate=new Date();
+　h=NowDate.getHours();
+　m=NowDate.getMinutes();
+　s=NowDate.getSeconds();　
+　document.getElementById('current').innerHTML = '現在時刻:'+h+'時'+m+'分'+s+'秒';
+　setTimeout('current_time()',1000);
+}
+
+var eg = "28.2"
+var eg2 = "30.6"
+var eg3 = "27.6"
+
+function randomchoose() {
+    var rand = ["eg", "eg2", "eg3"];
+    var act = [eg, eg2, eg3];
+    choose = rand[Math.floor(Math.random()*rand.length)]
+    chosen = act[choose]
+    return [chosen, choose];
+}
+function setup() {  
+   
+    // Creating Canvas size 
+    createCanvas(550, 140);  
+       
+    // Set the background color  
+    background(220);  
+      
+    // Calling to random() function with 
+    // parameter array of some elements 
+    let A = random([28.8, 30.5, 29.23,27.2]); 
+    let B = random([0, 1]); 
+    
+      
+    // Set the size of text  
+    textSize(16);  
+       
+    // Set the text color  
+    fill(color('red'));  
+     
+    // Getting random number 
+    text("溫度 " + A); 
+    text("濕度 " + B); 
+   
+} 
+</script>
+
+
+</head>
+<body onload="current_time()"; bgcolor="#E8FFF5"; >
+
+  <dl>
+    <!--<dt>現在時刻</dt>
+    <dd class=time><span id="current"></span></dd>-->
+	<h1><b><center>溫溼度監控</center></b></h1>
+    <dt>溫度</dt>
+    <dd class=num>28.82度C</dd>
+    <dt>濕度</dt>
+    <dd class=num>70.45%</dd>
+	<dt>目前狀態</dt>
+    <ds>危險</ds>
+	<h2>目前濕度過高，請勿澆水</h2>
+	<h2>目前溫度過高，請降低溫度</h2>
+</body>
+
+</html>
